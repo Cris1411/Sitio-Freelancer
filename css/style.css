@@ -1,0 +1,332 @@
+/* modelo de css */
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfedf3
+}
+
+/* General */
+
+html{
+    font-size: 62.5%;
+}
+
+/* Aplicar un modelo de Box Model (diseño Caja) a todos los elementos, pero permitiendo que los componentes cambien */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;  /* para que el scroll se haga de forma horizontal */
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+
+  /* scroll snap */    
+.servicios,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center;  /* para que el contenido se alinee al centro */
+    scroll-snap-stop: always;   /* para que el scroll se detenga al llegar al final de la pagina */
+}
+
+/* contenedor de los enlaces en la barra de navegacion principal */
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto; /* para que el contenedor se ajuste al ancho de la pantalla */
+}
+
+/* boton de navegacion */
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;  /* para que el boton tenga un tamaño de 1rem y 3rem de ancho */
+    margin-top: 1rem;   /* para que el boton se encuentre un espacio de 1rem de separacion */
+    font-size: 2rem;
+    text-decoration: none;  /* para que no se vea el enlace con una linea */
+    text-transform: uppercase;  /* para que el texto se ponga en mayusculas */
+    font-weight: bold;  /* para que el texto se ponga en negrita */
+    border-radius: .5rem;   /* border-radius = radio de curvatura */
+    width: 90%; /* para que el boton tenga un ancho de 90% */
+    text-align: center; /* para que el texto se ponga al centro */
+    border: none;   /* para que no se vea el borde */
+    }
+
+@media (min-width: 768px ) {
+    .boton{
+        width: auto;    /* para que el boton se ajuste al ancho de la pantalla */
+    }
+}
+
+.boton:hover{
+    cursor: pointer;    /* para que el cursor del mouse sea un puntero */
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+body{
+    font-size: 16px; /* 1rem = 10px */
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100% );    /* para que el fondo se ajuste al alto de la pantalla */
+}
+
+/* tipografía */
+h1{
+    font-size: 3.8rem;
+}
+
+
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1, h2, h3{
+    text-align: center;
+
+}
+
+
+h2 span {                   
+    font-size: 1.6rem;      /* modifica el formato en el span que pertenezca al h2 */
+}
+
+/** utilidades **/
+
+.w-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px ) {
+    .w-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+/* 
+    Estilos para el menu de navegacion
+*/
+
+/*barra de navegacion principal*/
+.navegacion-principal{
+    
+    display:flex;        /* para que se pueda dar flex en el contenedor */
+    align-items: center;     /* para que los elementos se alineen en el eje vertical */
+    flex-direction: column;    /* para que los elementos se distribuyan de manera vertical */
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/*enlace de navegacion principal*/
+.navegacion-principal a{
+    color: var(--blanco);
+    padding: 1rem;  /* 1rem = 16px */
+    text-decoration: none;  /* para que no se vea el texto como una linea */
+}
+
+/*enlace de navegacion principal activo*/
+.navegacion-principal a:hover{  /* para que al pasar el mouse por encima de un elemento cambie el color */
+    color: var(--oscuro);
+    background-color: var(--primario);
+}
+
+/* media query para que se vea el menu responsive */
+@media (min-width: 768px ) {
+    .navegacion-principal{
+       flex-direction: row; /* para que los elementos se distribuyan de manera horizontal */
+       justify-content: space-between;     /* para que los elementos se distribuyan de manera espacio-entre */
+
+    }
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.54);
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;    /* border-radius = radio de curvatura */
+}
+
+/* 
+    Estilos para hero
+*/
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;   /* para que no se repita la imagen */
+    background-size: cover; /* para que la imagen se ajuste al tamaño del contenedor */
+    height: 410px;
+    position: relative; /* para que se pueda posicionar el texto, en el modulo Padre */
+    margin-bottom: 2rem;    /* para que las esquinas queden redondeadas */
+}
+
+.contenido-hero{
+    position: absolute;     /* para que se pueda posicionar el texto, en el modulo Hijo */
+    background-color:rgba(0, 0, 0, 0.7);
+    background-color: rgb(0, 0, 0, 0 / 70%);
+    width: 100%;
+    height: 100%;
+
+    display: flex;      /* para que se pueda dar flex en el contenedor */
+    flex-direction: column;     /* para que los elementos se distribuyan de manera vertical */
+    align-items: center;        /* para que los elementos se alineen en el eje vertical */
+    justify-content: center;        /* para que los elementos se alineen en el eje horizontal centrando el espacio*/
+}
+
+    .contenido-hero h2,
+    .contenido-hero p{
+        color: var(--blanco);
+        text-align: center;
+    }
+
+    .ubicacion{
+        display: flex;
+        align-items: flex-end;
+    }
+
+
+/* 
+    Estilos para clase de servicios
+*/
+
+@media (min-width: 768px ) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem; /* para que los elementos se distribuyan de manera espacio-entre */
+    }
+}
+
+.servicios{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* para que se distribuyan las columnas de manera horizontal, fr dividido en 3 fracciones*/
+}
+
+.servicio{
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* para que los elementos se distribuyan de manera vertical */
+    align-items: center;    /* para que los elementos se alineen en el eje vertical */
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;    /* para que el texto se ponga en normal */
+    text-align: center;    /* para que el texto se ponga al centro */
+}
+
+.servicio p{
+    line-height: 2; /* para que el texto se ajuste al alto de la linea */
+}
+
+.iconos{
+    font-size: 2.5rem;
+    color: var(--oscuro);
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%; /* border-radius = radio de curvatura, lo convertimos en circulo */
+    display: flex;
+    justify-content: space-evenly;  /* para que los elementos se alineen en el eje horizontal centrando el espacio*/
+    align-items: center;    /* para que los elementos se alineen en el eje vertical */    
+}
+
+/*
+    contacto
+*/
+
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%);    /* utilizar el valor mas pequeño entre el ancho del contenedor y el ancho del formulario */
+    margin: 0 auto;   /* para que el formulario se alinee en el eje horizontal */
+    padding: 2rem;  
+    
+}
+
+.formulario fieldset{
+    border: none;   /* para que no se vea el borde */
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;  /* para que el texto se ponga en mayuscula */
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+
+}
+
+@media (min-width: 768px ) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  /* para que se distribuyan las columnas de manera horizontal, fr dividido en 2 fracciones*/
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem; /* para que los elementos se distribuyan de manera espacio-entre */
+    
+    }
+}
+
+/* fila correo y mensaje*/
+.campo:nth-child(3),
+.campo:nth-child(4) {
+    grid-column: 1 / 3; 
+}
+
+
+.campo{
+    margin-bottom: 1rem;
+
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block; /* para que el label se ajuste al alto del campo */
+
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+
+}
+
+/** 
+    Footer 
+**/
+
+.footer{
+    text-align: right;
+    padding: 2rem;
+}
